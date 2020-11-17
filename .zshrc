@@ -13,6 +13,7 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 . /usr/local/opt/asdf/asdf.sh
+. ~/.asdf/plugins/java/set-java-home.zsh
 
 # This speeds up pasting w/ autosuggest
 # https://github.com/zsh-users/zsh-autosuggestions/issues/238
@@ -30,7 +31,18 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 alias 1="cd ~/Workspace/src/github.com"
 alias git="hub"
 
-export PATH=$PATH:~/Workspace/bin
-export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+vegeta_realtime() {
+    vegeta encode | \
+    jaggr @count=rps \
+          hist\[100,200,300,400,500\]:code \
+          p25,p50,p95:latency \
+          sum:bytes_in \
+          sum:bytes_out | \
+    jplot rps+code.hist.100+code.hist.200+code.hist.300+code.hist.400+code.hist.500 \
+          latency.p95+latency.p50+latency.p25 \
+          bytes_in.sum+bytes_out.sum
+}
+
+eval "$(gh completion -s zsh)"
+
+. ~/.zshenv

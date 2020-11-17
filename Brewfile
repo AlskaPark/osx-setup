@@ -12,6 +12,9 @@ brew "zsh-syntax-highlighting"
 brew "mas"
 brew "yarn", args: ["without-node"]
 brew "hub"
+brew "plantuml"
+brew "rs/tap/jplot"
+brew "rs/tap/jaggrbrew"
 
 cask "rectangle"
 cask "docker"

@@ -24,5 +24,6 @@ cask "microsoft-office"
 cask "istat-menus"
 cask "jetbrains-toolbox"
 cask "postman"
+cask "1password"
 
 # TODO: Kakaotalk

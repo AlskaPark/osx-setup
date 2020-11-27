@@ -1,4 +1,6 @@
 #!/bin/zsh
+mkdir -p ~/Workspace/src ~/Workspace/bin ~/Workspace/pkg
+
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ln -s $(pwd)/.zshenv ~/.zshenv
 ln -s $(pwd)/.zshrc ~/.zshrc

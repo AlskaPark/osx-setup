@@ -1,6 +1,10 @@
 #!/bin/zsh
+ln -s $(pwd)/.zshenv ~/.zshenv
+ln -s $(pwd)/.zshrc ~/.zshrc
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+
+. ~/.zshrc
 
 brew bundle
 
